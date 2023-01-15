@@ -1,8 +1,7 @@
 import React from "react";
 import { useState,useEffect } from "react";
 
-const Form = () => {
-    let [name, setName] = useState(true)
+const Form = ({className,removeTransaction}) => {
 
 
     let [category,setCategory] = useState(null)
@@ -35,6 +34,7 @@ const Form = () => {
     }
 
     let handleSubmit = () =>{
+        if(newObj.date !== null && newObj.description !== null && newObj.category !== null && newObj.amount !== null){
         fetch("http://localhost:8000/transactions",{
             method: "POST",
             headers: {"Content-Type": "application/json"},
@@ -42,6 +42,11 @@ const Form = () => {
         })
         .then((response) =>{ console.log(response)})
     }
+    else{
+        console.log("error")
+    }
+
+}
 
     let logAns = (e) => {
     e.preventDefault()
@@ -49,7 +54,8 @@ const Form = () => {
 
 
     return ( 
-        <form className={}>
+        <form className={className}>
+            <button onclick = {removeTransaction} id="remove-transaction">X</button>
         <select onClick = {(e)=>{
             handleCategory(e.target.value)
         }} id="categories">

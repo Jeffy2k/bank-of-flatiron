@@ -31,11 +31,29 @@ function App() {
     setTransactions(initialState)
   }
 
+  let [name, setName] = useState(false)
+  let [newName, setNewName] = useState(true)
+  let appendTransaction = ()=>{
+    setName(true)
+    setNewName(false)
+    console.log('true')
+  }
+  let removeTransaction = ()=>{
+    setNewName(true)
+    setName(false)
+    console.log('true')
+  }
+ 
+  let newClassName = newName ? "formVisibible" : "formHidden"
+  let className = name ? "formVisible" : "formHidden"
+  console.log(className)
   return (
     <div className="App">
-      <Searchbar handleBack = {handleBack} handleSearch = {handleSearch}/>
+      <div className = {newClassName} id='mainContent'>
+      <Searchbar appendTransaction = {appendTransaction} handleBack = {handleBack} handleSearch = {handleSearch}/>
       {transactions && <Table data = {transactions}/>}
-      <Form/>
+      </div>
+      <Form removeTransaction = {removeTransaction} className = {className} />
     </div>
   );
 }
