@@ -7,9 +7,12 @@ let transactions = data.map((transaction)=>{
             <td className="tableData" >{ transaction.category }</td>
             <td className="tableData" >{ transaction.description }</td>
             <td className="tableData" >{ transaction.amount }</td>
-            <td className="tableData" >{ transaction.date }</td>
-            <button id="delete-button">X</button>
+            <td className="tableData" >{ transaction.date } </td>
+            <td><button onClick={(e)=>{
+               e.target.parentNode.parentNode.remove()
+            }} id="delete-button">X</button></td>
           </tr>
+          
 })
 
 return <table >
@@ -21,7 +24,7 @@ return <table >
                     <th className="th-container">Date</th>
                 </tr>
             </thead>
-           <tbody>
+           <tbody id="table-body">
                 {transactions}
            </tbody>
         </table>
