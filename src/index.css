@@ -186,11 +186,23 @@ option:focus{
   position: relative;
   background-color: red;
   color: white;
-  left: -19em;
+  left: -15em;
 }
 #back-button:hover{
   background-color: rgb(137, 5, 5);
 }
 #back-button:active{
 scale: .95;
+}
+#add-button{
+  position: relative;
+  left: 15em;
+  border-radius: 10px;
+  border: none;
+  font-size: 1.2em;
+  padding: .6em 1em;
+  /* border-radius: 10px; */
+  position: relative;
+  background-color: red;
+  color: white;
 }

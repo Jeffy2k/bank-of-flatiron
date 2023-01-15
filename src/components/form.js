@@ -2,6 +2,9 @@ import React from "react";
 import { useState,useEffect } from "react";
 
 const Form = () => {
+    let [name, setName] = useState(true)
+
+
     let [category,setCategory] = useState(null)
     let [description,setDescription] = useState(null)
     let [amount,setAmount] = useState(null)
@@ -46,7 +49,7 @@ const Form = () => {
 
 
     return ( 
-        <form >
+        <form className={}>
         <select onClick = {(e)=>{
             handleCategory(e.target.value)
         }} id="categories">
