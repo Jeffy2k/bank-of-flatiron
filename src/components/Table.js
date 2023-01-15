@@ -2,7 +2,29 @@ import React from "react"
 
 
 function Table({data}){
+let transactions = data.map((transaction)=>{
+    return <tr className="tableRow" key={transaction.id}>
+            <td className="tableData" >{ transaction.category }</td>
+            <td className="tableData" >{ transaction.description }</td>
+            <td className="tableData" >{ transaction.amount }</td>
+            <td className="tableData" >{ transaction.date }</td>
+            <button id="delete-button">X</button>
+          </tr>
+})
 
+return <table >
+            <thead id="tableHead">
+                <tr id="tableHeaderContainer">
+                    <th className="th-container">Category</th>
+                    <th className="th-container">Description</th>
+                    <th className="th-container">Amount</th>
+                    <th className="th-container">Date</th>
+                </tr>
+            </thead>
+           <tbody>
+                {transactions}
+           </tbody>
+        </table>
 }
 
 export default Table;

@@ -14,7 +14,7 @@ function App() {
   },[])
   return (
     <div className="App">
-     
+      {transactions && <Table data = {transactions}/>}
     </div>
   );
 }
