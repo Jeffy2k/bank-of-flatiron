@@ -7,12 +7,14 @@ import { useEffect,useState } from "react";
 
 function App() {
   const [transactions,setTransactions] = useState(null)
+  const [initialState,setInitialState] = useState(null)
   
   useEffect(() =>{
   fetch("http://localhost:8000/transactions")
   .then((response)=> response.json())
   .then((res)=>{ 
     setTransactions(res)
+    setInitialState(res)
   })
   },[])
 
@@ -26,11 +28,8 @@ function App() {
   }
   
   let handleBack = () =>{
-    let transactionsNew =  transactions.filter((transaction) => {return transaction.id > 0})
-    console.log(transactionsNew)
-    setTransactions(transactionsNew)
+    setTransactions(initialState)
   }
-
 
   return (
     <div className="App">

@@ -31,13 +31,22 @@ const Form = () => {
         amount
     }
 
+    let handleSubmit = () =>{
+        fetch("http://localhost:8000/transactions",{
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(newObj)
+        })
+        .then((response) =>{ console.log(response)})
+    }
+
     let logAns = (e) => {
     e.preventDefault()
     console.log(newObj)}
 
 
     return ( 
-        <form>
+        <form >
         <select onClick = {(e)=>{
             handleCategory(e.target.value)
         }} id="categories">
@@ -60,7 +69,7 @@ const Form = () => {
            <br/>
            <input onChange = {(e)=>{handleDate(e.target.value)}} value = {date} type="date" id="dateInput"></input>
            <br/>
-           <button onClick={logAns} id = "submit-button" type="submit">submit</button>
+           <button onClick={handleSubmit} id = "submit-button" type="submit">submit</button>
         </form>
      );
 }
