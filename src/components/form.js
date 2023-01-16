@@ -1,5 +1,5 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 
 const Form = ({className,removeTransaction}) => {
 
@@ -47,10 +47,6 @@ const Form = ({className,removeTransaction}) => {
     }
 
 }
-
-    let logAns = (e) => {
-    e.preventDefault()
-    console.log(newObj)}
 
 
     return ( 
