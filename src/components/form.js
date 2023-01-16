@@ -72,7 +72,7 @@ const Form = ({className,removeTransaction}) => {
            <br/>
            <label for = "amountInput">Amount </label>
            <br/>
-           <input onChange = {(e)=>{handleAmount(e.target.value)}} value = {amount} type="number" id="amountInput"></input>
+           <input onChange = {(e)=>{handleAmount(parseInt(e.target.value))}} value = {amount} type="number" id="amountInput"></input>
            <br/>
            <label for = "amountInput">Date</label>
            <br/>

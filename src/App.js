@@ -13,10 +13,26 @@ function App() {
   fetch("http://localhost:8000/transactions")
   .then((response)=> response.json())
   .then((res)=>{ 
-    setTransactions(res)
+    sortByCategory(res)
     setInitialState(res)
   })
   },[])
+
+let sortByCategory = (data) => {
+data.sort((a,b)=>{
+  let categoryA = a.category.toLowerCase()
+  let categoryB = b.category.toLowerCase()
+  
+  if(categoryA < categoryB ) {
+    return -1;
+}
+if (categoryA > categoryB ) {
+    return 1;
+}
+return 0;
+})
+  setTransactions(data)
+}
 
   let handleSearch = (value) => {
     
@@ -46,7 +62,7 @@ function App() {
  
   let newClassName = newName ? "formVisibible" : "formHidden"
   let className = name ? "formVisible" : "formHidden"
-  console.log(className)
+  
   return (
     <div className="App">
       <div className = {newClassName} id='mainContent'>
