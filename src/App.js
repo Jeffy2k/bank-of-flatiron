@@ -34,18 +34,16 @@ return 0;
   setTransactions(data)
 }
 
+
   let handleSearch = (value) => {
     
-    let income = transactions.filter((trans )=> {return trans.description.toLowerCase().includes(value.toLowerCase())})
+    let income = transactions.filter((transaction )=> {return transaction.description.toLowerCase().includes(value.toLowerCase())})
     if(income.length > 0){
     console.log(income)
     setTransactions(income)}
     else{console.log("No transactions")}
   }
   
-  let handleBack = () =>{
-    setTransactions(initialState)
-  }
 
   let [name, setName] = useState(false)
   let [newName, setNewName] = useState(true)
@@ -59,10 +57,16 @@ return 0;
     setName(false)
     console.log('true')
   }
+  let handleBack = () =>{
+    setTransactions(initialState)
+    setName(false)
+    setNewName(true)
+  }
  
   let newClassName = newName ? "formVisibible" : "formHidden"
   let className = name ? "formVisible" : "formHidden"
-  
+
+
   return (
     <div className="App">
       <div className = {newClassName} id='mainContent'>

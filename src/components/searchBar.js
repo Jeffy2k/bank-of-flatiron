@@ -12,7 +12,7 @@ function Searchbar({handleSearch,handleBack,appendTransaction}) {
         
     return ( 
      <div>
-        <button onClick = {handleBack} id='back-button' >back</button>
+        <a href ="http://localhost:3000/" id='back-button' >back</a>
         <input onChange = {(e)=>{handleSetState(e.target.value)}} value ={searchValue} id='searchInput' type = 'search' placeholder = 'search'></input>
         <button onClick={() => {
           handleSearch(searchValue)

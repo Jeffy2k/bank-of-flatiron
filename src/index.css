@@ -196,6 +196,7 @@ option:focus{
 }
 
 #back-button{
+  text-decoration: none;
   border: none;
   font-size: 1.2em;
   padding: .5em 1em;
