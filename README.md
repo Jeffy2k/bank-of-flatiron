@@ -22,7 +22,7 @@ The app fetches data from a mock server and renders it on the page.On loading , 
 
  # RUNNING THE APPLICATION
 
- You can access the web app directly by clicking <a href = "https://https-github-com-jeffy2k-bank-of-flatiron-dpgj1j0wx.vercel.app/">here</a>.
+ You can access the web app directly by clicking <a href = "https://bank-of-flatiron3.vercel.app/">here</a>.
 
  To run the application on your machine:-
  - Run the command below while in the repository's directory
