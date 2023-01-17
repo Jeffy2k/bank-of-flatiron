@@ -8,16 +8,19 @@ import { useEffect,useState } from "react";
 function App() {
   const [transactions,setTransactions] = useState(null)
   const [initialState,setInitialState] = useState(null)
+ 
   
   useEffect(() =>{
-  fetch("http://localhost:8000/transactions")
+  fetch("https://codechallenge2.vercel.app/transactions")
   .then((response)=> response.json())
   .then((res)=>{ 
+    console.log(res)
     sortByCategory(res)
     setInitialState(res)
   })
   },[])
 
+  
 let sortByCategory = (data) => {
 data.sort((a,b)=>{
   let categoryA = a.category.toLowerCase()

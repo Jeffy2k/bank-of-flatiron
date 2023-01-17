@@ -33,11 +33,16 @@ const Form = ({className,removeTransaction}) => {
         amount
     }
 
-    let handleSubmit = () =>{
+    let handleSubmit = (e) =>{
+        e.preventDefault()
+        console.log("active post")
         if(newObj.date !== null && newObj.description !== null && newObj.category !== null && newObj.amount !== null){
-        fetch("http://localhost:8000/transactions",{
+        fetch("https://codechallenge2.vercel.app/transactions",{
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
             body: JSON.stringify(newObj)
         })
         .then((response) =>{ console.log(response)})
@@ -51,7 +56,7 @@ const Form = ({className,removeTransaction}) => {
 
     return ( 
         <form className={className}>
-            <button onclick = {removeTransaction} id="remove-transaction">X</button>
+            <button onClick = {removeTransaction} id="remove-transaction">X</button>
         <select onClick = {(e)=>{
             handleCategory(e.target.value)
         }} id="categories">
