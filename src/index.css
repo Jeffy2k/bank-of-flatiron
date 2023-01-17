@@ -10,6 +10,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+#pageHeader{
+  margin:.5em 1em;
+  font-size: 2em;
+}
 .App{
   position: relative;
 }
@@ -242,4 +246,52 @@ scale: .95;
 .currency{
   margin-right: 1em ;
   font-weight: 300;
+}
+#loader4{
+  position: relative;
+  top: 17em;
+  left: 40em;
+}
+
+#loadline{
+  position: relative;
+  top: 3.5em;
+  left: 1.1em;
+  border-top: .3em solid black;
+  border-bottom: .3em solid black;
+  border-right: .3em solid transparent;
+  border-left: .3em solid transparent;
+  border-radius: 100%;
+  height: 80px;
+  width: 80px;
+  animation: load4 1.5s linear infinite;
+}
+#loadline2{
+  position: relative;
+  top: -1.2em;
+  left: 2.2em;
+  border-top: .3em solid black;
+  border-bottom: .3em solid black;
+  border-right: .3em solid transparent;
+  border-left: .3em solid transparent;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  animation: newload4 1.5s linear infinite;
+}
+@keyframes load4{
+  from{
+      rotate: 0;
+  }
+  to{
+      rotate: 360deg;
+  }
+}
+@keyframes newload4 {
+  from{
+      rotate: 0;
+  }
+  to{
+      rotate: -360deg;
+  }
 }

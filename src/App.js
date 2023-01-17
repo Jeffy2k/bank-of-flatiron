@@ -8,6 +8,7 @@ import { useEffect,useState } from "react";
 function App() {
   const [transactions,setTransactions] = useState(null)
   const [initialState,setInitialState] = useState(null)
+  const [isLoading,setIsLoading] = useState(true)
  
   
   useEffect(() =>{
@@ -17,6 +18,7 @@ function App() {
     console.log(res)
     sortByCategory(res)
     setInitialState(res)
+    setIsLoading(false)
   })
   },[])
 
@@ -73,7 +75,13 @@ return 0;
   return (
     <div className="App">
       <div className = {newClassName} id='mainContent'>
-      <Searchbar appendTransaction = {appendTransaction} handleBack = {handleBack} handleSearch = {handleSearch}/>
+      {transactions && <Searchbar appendTransaction = {appendTransaction} handleBack = {handleBack} handleSearch = {handleSearch}/>}
+      {isLoading &&   <div id="loader4">
+        <div id="loadline">
+        </div>
+        <div id="loadline2">
+        </div>
+    </div>}
       {transactions && <Table data = {transactions}/>}
       </div>
       <Form removeTransaction = {removeTransaction} className = {className} />
